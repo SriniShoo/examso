@@ -47,7 +47,7 @@ substitutes at render time. To tune the prompt, just edit that file.
 
 ## Run it
 
-```bash
+```shell
 # Tiny static server (recommended; works for everyone)
 python3 -m http.server 5173 --directory frontend
 # → http://localhost:5173
