@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content="ExamSo — bring your own MCQ paper. Practice, score, repeat." />
+    <meta name="theme-color" content="#0c0a09" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#fafaf9" media="(prefers-color-scheme: light)" />
+    <title>ExamSo · Exam? So?</title>
+
+    <!-- PWA manifest + icons. Same SVG icon serves the browser tab, the
+         iOS home-screen, and the maskable Android launcher. -->
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" type="image/svg+xml" href="icon.svg" />
+    <link rel="apple-touch-icon" href="icon.svg" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="ExamSo" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="ExamSo" />
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.css"
+          integrity="sha384-vlBdW0r3AcZO/HboRPznQNowvexd3fY8qHOWkBi5q7KGgqJ+F48+DceybYmrVbmB"
+          crossorigin="anonymous" />
+    <script defer
+            src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.js"
+            integrity="sha384-AtrdNsnxl/75rvBneBVH7DtOvCxSVahR2zWqle1coBKd8DEmLoviqNeJSx64gNAs"
+            crossorigin="anonymous"></script>
+    <script defer
+            src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/contrib/mhchem.min.js"
+            integrity="sha384-fB8BH//9nBzROkMUsu/Dr35jWHIbnKesUo9rW0hfEgw8mZGnkAyBAjKX9F98OVuo"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header id="brand-bar"></header>
+    <main id="app" aria-live="polite"></main>
+    <div id="toast-tray" aria-live="polite" aria-atomic="true"></div>
+    <!-- Prompt template lives in its own file so it's editable without
+         touching app.js. Loaded before the app so window.PROMPT_TEMPLATE is
+         available when buildPrompt runs. -->
+    <script src="prompt.template.js" defer></script>
+    <script src="app.js" defer></script>
+
+    <!-- PWA service worker. Skipped on file:// (no SW support there). -->
+    <script>
+      if ("serviceWorker" in navigator && location.protocol !== "file:") {
+        addEventListener("load", () => {
+          navigator.serviceWorker.register("./sw.js").catch(() => {});
+        });
+      }
+    </script>
+  </body>
+</html>

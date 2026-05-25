@@ -1,0 +1,22 @@
+{
+  "name": "ExamSo — Bring Your Own Paper",
+  "short_name": "ExamSo",
+  "description": "Generate an MCQ paper with any LLM, paste it back, take the exam.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "theme_color": "#0c0a09",
+  "background_color": "#f5f5f4",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["education", "productivity"],
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
